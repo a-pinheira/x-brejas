@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./_Template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:inputText id="nome" value="#{BrejasBackBean.estilos.estilo}"
+                             p:placeholder="Consulta por estilo de cerveja"/>
+                <h:commandButton value="Consultar" action="#{BrejasBackBean.consultar}">
+                    <f:ajax render="tabela" execute="estilo"/>
+                </h:commandButton>                
+            </h:panelGrid>
+            <h:dataTable value="#{BrejasBackBean.estilos}" id="toabela" var="b">
+                <h:column>
+                    <f:facet name="header">Id Brejas</f:facet>
+                    <h:outputText value="#{b.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Estilo Brejas</f:facet>
+                    <h:outputText value="#{b.estilo}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Temperatura Ideal</f:facet>
+                    <h:outputText value="#{b.temperatura}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Endereco</f:facet>
+                    <h:outputText value="#{c.endereco}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

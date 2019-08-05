@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/layout.css"/>
+        <title>Facelets Template</title>
+    </head>
+    <body>
+        
+        <div id="top" class="top">
+            <ui:insert name="top"><h1> .: x-Brejas :. </h1></ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <h:form>
+                        <h:panelGrid columns="1">
+                            <h:commandLink value="Adicionar Cerveja" action="#{BrejasBackBean.pag_cadastrar}"/>
+                            <!-- action="#{BrejasBackBean.pag_cadastrar}-->
+                            <h:commandLink value="Listar Cerveja" action="#{BrejasBackBean.listar}"/>
+                            <h:commandLink value="Consultar Cerveja" action="#{BrejasBackBean.pag_consultar}"/>
+                            <h:commandLink value="Excluir Cerveja" action="#{BrejasBackBean.pag_excluir}"/>
+                        </h:panelGrid>
+                    </h:form>                   
+                </ui:insert>
+            </div>
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+    </body>
+</html>

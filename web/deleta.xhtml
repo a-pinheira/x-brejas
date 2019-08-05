@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./_Template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:inputText id="id" value="#{BrejasBackBean.estilos.id}" label="id"
+                             required="true" p:placeholder="Id da Cerveja"/>
+                <h:commandButton value="Deletar" action="#{BrejasBackBean.consultarPorEstilo}">
+                    <f:ajax render="nome excluir" execute="id"/>
+                </h:commandButton>
+                <h:message for="id" styleClass="erro"/>
+                <h:outputText id="nome" value="#{BrejasBackBean.estilos.estilo}"/>
+                <h:commandButton value="Confirma a exclusão" 
+                                 disabled="#{BrejasBackBean.desabilitar}"
+                                 action="#{BrejasBackBean.excluir}" id="excluir"/>
+            </h:panelGrid>            
+        </h:form>
+    </ui:define>
+
+    </ui:composition>
